@@ -2894,3 +2894,15 @@ ul.topiclist.forums > .row:not(.sol) .forito {
   box-sizing: border-box;
   width: calc(100% - 20px);
 }
+
+/* GRUPOS: 11 iconos repartidos en dos filas.
+   Primera fila: 6 grupos.
+   Segunda fila: 5 grupos.
+   Cada icono conserva su tamaño de 150 × 150 px. */
+.grupos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1080px;
+  margin: 15px auto 0;
+}
