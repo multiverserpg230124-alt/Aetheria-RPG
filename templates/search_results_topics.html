@@ -1,0 +1,40 @@
+<form action="{S_ACTION}" method="post" name="post" onsubmit="return verify_select();">
+
+	<div class="forabg">
+			<ul id="memberlist" class="topiclist topics">
+<div class="titulocate"><i class="fas fa-search"></i><h2>{L_SEARCH_MATCHES}</h2></div>
+			</ul>
+
+			<ul class="topiclist topics search">
+			<!-- BEGIN searchresults -->
+				<li class="row {searchresults.ROW_ALT_CLASS}">
+<div id="Temas">
+<tipp>{searchresults.TOPIC_TYPE}</tipp>
+<div class="temas"><titulo><a class="topictitle" href="{searchresults.U_VIEW_TOPIC}">{searchresults.TOPIC_TITLE}</a></titulo>
+<abajo><num>{searchresults.GOTO_PAGE_NEW}</num></abajo></div>
+<div class="count">
+<resp><b>{searchresults.REPLIES}</b> <i>Respuestas</i></resp>
+<vist><b>{searchresults.VIEWS}</b> <i>Miradas</i></vist>
+</div>
+<div class="leyes">
+<crea>Creado por {searchresults.TOPIC_AUTHOR}</crea>
+<last>Respondido por {searchresults.LAST_POST_AUTHOR}{searchresults.LAST_POST_IMG}</last>
+<time>{searchresults.LAST_POST_TIME}</time>
+</div>
+                               </div>
+				</li>
+			<!-- END searchresults -->
+			</ul>
+
+			<div class="clear"></div>
+
+	</div>
+<div class="navbottom">
+<red><a href="#top">Ir arriba</a>
+</red>
+<pag>{PAGINATION}</pag>
+</div>
+  <br />
+</form>
+<div class="clear"></div>
+{JUMPBOX}
