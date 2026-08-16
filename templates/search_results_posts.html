@@ -1,0 +1,57 @@
+<div class="titulocate"><i class="fas fa-search"></i><h2>{L_SEARCH_MATCHES}</h2></div>
+
+<!-- BEGIN searchresults -->
+<div class="search post row1">
+<div class="contenedorpost">
+<div class="infosuper">
+  <pst><b>Autor:</b> {searchresults.POSTER_NAME}</pst>
+  <date><b>Fecha:</b> {searchresults.POST_DATE}</date>
+</div>
+<div class="posteodentro">
+<div class="avatare">
+<rango>{searchresults.POSTER_NAME}</rango>
+<contes><resp>{searchresults.TOPIC_REPLIES}</resp><veis>{searchresults.TOPIC_VIEWS}</veis></contes>
+<linkesos>
+<a class="postdetails" href="{searchresults.U_FORUM}">{searchresults.FORUM_NAME}</a>
+<a class="postdetails" href="{searchresults.U_TOPIC}">{searchresults.TOPIC_TITLE}</a>
+</linkesos>
+</div>
+<div class="mensajeros">
+<div class="topetero">
+<tut><a href="{searchresults.U_POST}">{searchresults.TOPIC_TITLE}</a></tut>
+</div>
+<div class="postaqui">
+			<div class="postbody">
+		{searchresults.MESSAGE}
+	</div>
+</div>
+</div></div></div></div>
+<!-- END searchresults -->
+
+<div class="navbottom">
+<red><a href="#top">Ir arriba</a>
+</red>
+<pag>{PAGINATION}</pag>
+</div>
+  <br />
+
+<div class="clear"></div>
+{JUMPBOX}
+
+<!-- BEGIN switch_image_resize -->
+<script type="text/javascript">
+//<![CDATA[
+$(resize_images({ 'selector' : '.postbody', 'max_width' : {switch_image_resize.IMG_RESIZE_WIDTH}, 'max_height' : {switch_image_resize.IMG_RESIZE_HEIGHT} }));
+//]]>
+</script>
+<!-- END switch_image_resize -->
+
+<script type="text/javascript">
+	//<![CDATA[
+$('rango span').each(function(){
+var memberColour = $(this).css('color');
+$(this).parents('.contenedorpost').attr('style', '--pj:' + memberColour + ';');
+});
+
+//]]>
+</script>
