@@ -1,0 +1,112 @@
+<!-- BEGIN topics_list_box -->
+<!-- BEGIN row -->
+<!-- BEGIN header_table -->
+	<!-- BEGIN multi_selection -->
+		<script type="text/javascript">
+
+		function check_uncheck_main_{topics_list_box.row.header_table.BOX_ID}()
+		{
+			alert('MAIN');
+
+			var all_checked = true;
+
+			for (i = 0; (i < document.{topics_list_box.FORMNAME}.elements.length) && all_checked; i++)
+			{
+				if (document.{topics_list_box.FORMNAME}.elements[i].name == '{topics_list_box.FIELDNAME}[]{topics_list_box.row.header_table.BOX_ID}')
+				{
+					all_checked = document.{topics_list_box.FORMNAME}.elements[i].checked;
+				}
+			}
+
+			document.{topics_list_box.FORMNAME}.all_mark_{topics_list_box.row.header_table.BOX_ID}.checked = all_checked;
+		}
+
+		function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}()
+		{
+			alert('ALL');
+
+			for (i = 0; i < document.{topics_list_box.FORMNAME}.length; i++)
+			{
+				if (document.{topics_list_box.FORMNAME}.elements[i].name == '{topics_list_box.FIELDNAME}[]{topics_list_box.row.header_table.BOX_ID}')
+				{
+					document.{topics_list_box.FORMNAME}.elements[i].checked = document.{topics_list_box.FORMNAME}.all_mark_{topics_list_box.row.header_table.BOX_ID}.checked;
+				}
+			}
+		}
+
+		</script>
+	<!-- END multi_selection -->
+
+	<div class="forumbg announcement">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		<ul class="topiclist topics">
+						<!-- BEGIN multi_selection -->
+						<input onclick="check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}();" type="checkbox" name="all_mark_{topics_list_box.row.header_table.BOX_ID}" value="0" />
+						<!-- END multi_selection -->
+<div class="titulocate"><i class="far fa-bell-on"></i><h2>{topics_list_box.row.L_TITLE}</h2></div>
+		</ul>
+<ul class="topiclist topics bg_none">
+<!-- END header_table -->
+
+<!-- BEGIN header_row -->
+<div class="titulocate"><i class="far fa-bell"></i><h2>{topics_list_box.row.L_TITLE}</h2></div>
+<!-- END header_row -->
+
+<!-- BEGIN topic -->
+
+	<!-- BEGIN table_sticky -->
+</ul>
+</div></div>
+
+<div class="forumbg">
+<ul class="topiclist topics">
+<!-- BEGIN multi_selection -->
+<input onclick="check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}();" type="checkbox" name="all_mark_{topics_list_box.row.header_table.BOX_ID}" value="0" />
+<!-- END multi_selection -->
+<div class="titulocate"><i class="far fa-bell"></i><h2>{topics_list_box.row.topic.table_sticky.L_TITLE}</h2></div>
+		</ul>
+		<ul class="topiclist topics bg_none">
+	<!-- END table_sticky -->
+
+		<li class="row {topics_list_box.row.ROW_ALT_CLASS}"<!-- BEGIN line_sticky --> style="margin-top:5px;"<!-- END line_sticky --> >
+<div id="Temas">
+<!-- BEGIN single_selection -->
+<input type="radio" name="{topics_list_box.FIELDNAME}" value="{topics_list_box.row.FID}" {topics_list_box.row.L_SELECT} />
+<!-- END single_selection -->
+<tipp>{topics_list_box.row.TOPIC_TYPE}</tipp>
+<div class="temas"><titulo><a class="topictitle" href="{topics_list_box.row.U_VIEW_TOPIC}">{topics_list_box.row.TOPIC_TITLE}</a></titulo>
+<abajo><dsc><!-- BEGIN switch_description -->
+		{topics_list_box.row.topic.switch_description.TOPIC_DESCRIPTION}
+<!-- END switch_description --></dsc><num>{topics_list_box.row.GOTO_PAGE_NEW}</num></abajo></div>
+<div class="count">
+<resp><b>{topics_list_box.row.REPLIES}</b> <i>Respuestas</i></resp>
+<vist><b>{topics_list_box.row.VIEWS}</b> <i>Miradas</i></vist>
+</div>
+<div class="leyes">
+<crea>Creado por {topics_list_box.row.TOPIC_AUTHOR}</crea>
+<last>Respondido por {topics_list_box.row.LAST_POST_AUTHOR}{topics_list_box.row.LAST_POST_IMG}</last>
+<time>{topics_list_box.row.LAST_POST_TIME}</time>
+</div>
+
+
+				<!-- BEGIN multi_selection -->
+					<input onclick="javascript:check_uncheck_main_{topics_list_box.row.BOX_ID}();" type="checkbox" name="{topics_list_box.FIELDNAME}[]{topics_list_box.row.BOX_ID}" value="{topics_list_box.row.FID}" {topics_list_box.row.L_SELECT} />
+				<!-- END multi_selection -->
+			</div>
+		</li>
+<!-- END topic -->
+<!-- BEGIN no_topics -->
+<li class="row nonetemas">
+	<dl>
+		<dt><strong>{topics_list_box.row.L_NO_TOPICS}</strong></dt>
+	</dl>
+</li>
+<!-- END no_topics -->
+
+<!-- BEGIN bottom -->
+</ul>
+</div>
+<!-- END bottom -->
+<!-- BEGIN spacer --><br /><!-- END spacer -->
+<!-- END row -->
+<!-- END topics_list_box -->
