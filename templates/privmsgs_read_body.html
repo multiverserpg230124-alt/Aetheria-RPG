@@ -1,0 +1,94 @@
+<div id="privmsgs-menu">
+	<div class="ils"><i class="far fa-inbox-in"></i>{INBOX}<div class="active"></div></div>
+	<div class="ils"><i class="far fa-reply-all"></i>{SENTBOX}<div class="active"></div></div>
+	<div class="ils"><i class="far fa-inbox-out"></i>{OUTBOX}<div class="active"></div></div>
+	<div class="ils"><i class="far fa-bookmark"></i>{SAVEBOX}<div class="active"></div></div>
+</div>
+
+<form action="{S_PRIVMSGS_ACTION}" method="post">
+
+<!-- BEGIN switch_post_reply -->
+<div class="navtop">
+<bots>{REPLY_PM_IMG}</bots>
+</div>
+<div class="clear"></div>
+<!-- END switch_post_reply -->
+<div class="post row2">
+<div id="POST">
+<div id="postbody">
+<div class="postbody">
+<div class="titulocate conlink" style="margin: 0 0 15px;"><h2>{POST_SUBJECT}</h2></div>
+<div class="leyend">
+          <fech>{L_FROM} {MESSAGE_FROM} {L_TO} {MESSAGE_TO}, {POST_DATE}</fech>
+          <rigt>{QUOTE_PM_IMG} {EDIT_PM_IMG}</rigt>
+</div>
+		<div class="content">
+			{MESSAGE}
+	</div></div></div>
+	<let><div class="postprofile">
+			{AVATAR_FROM}
+	</div>
+        <rango style="margin: 10px 0 5px;">{MESSAGE_FROM}</rango>
+			<!-- BEGIN switch_user_contact -->
+        <linkesos style="margin: 0;">{PROFILE_IMG} {WWW_IMG}</linkesos>
+			<!-- END switch_user_contact -->
+    </let>
+  </div>
+</div>
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}
+	<!-- BEGIN switch_save -->
+	<input class="button2" type="submit" name="save" value="{L_SAVE_MSG}" />&nbsp;&nbsp;
+	<!-- END switch_save -->
+	<!-- BEGIN switch_move_profile -->
+	<input class="button2" type="submit" name="moveprofile" value="{L_MOVE_PROFILE}" />&nbsp;&nbsp;
+	<!-- END switch_move_profile -->
+	<input class="button2" type="submit" name="delete" value="{L_DELETE_MSG}" />
+</fieldset>
+
+<!-- BEGIN switch_post_reply -->
+<div class="navbottom">
+<bots>{REPLY_PM_IMG}</bots>
+</div>
+<div class="clear"></div>
+<!-- END switch_post_reply -->
+
+</form>
+
+<!-- BEGIN switch_review_box -->
+{TOPIC_REVIEW_BOX}
+<!-- END switch_review_box -->
+
+{JUMPBOX}
+
+<!-- BEGIN switch_image_resize -->
+<script type="text/javascript">
+//<![CDATA[
+$(resize_images({ 'selector' : '.postbody .content', 'max_width' : {switch_image_resize.IMG_RESIZE_WIDTH}, 'max_height' : {switch_image_resize.IMG_RESIZE_HEIGHT} }));
+//]]>
+</script>
+<!-- END switch_image_resize -->
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+ $('bots img[src="https://2img.net/i/fa/modernbb/button_topic_reply_fr.png"]').replaceWith('Responder el MP');
+ $('rigt img[src="https://2img.net/i/fa/modernbb/icon_post_quote.png"]').replaceWith('Citar');
+ $('rigt img[src="https://2img.net/i/fa/modernbb/icon_post_edit.png"]').replaceWith('Editar');
+ $('linkesos img[src="https://2img.net/i/fa/modernbb/icon_user_profile.png"]').replaceWith('Perfil');
+ $('linkesos img[src="https://2img.net/i/fa/modernbb/icon_contact_www.png"]').replaceWith('Lista estrellada');
+});
+  
+$('rango span').each(function(){
+var memberColour = $(this).css('color');
+$(this).parents('.post').attr('style', '--pj:' + memberColour + ';');
+});
+  //]]>
+</script>
+<style>#POST {margin: 10px 0;display:flex;}
+.leyend {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+.postbody {width: 725px;}
+</style>
