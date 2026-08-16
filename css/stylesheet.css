@@ -2877,3 +2877,20 @@ width: expression(( document.documentElement.clientWidth ? document.documentElem
   height: 20px!important;
   padding: 1px!important;
 }
+
+/* SUBFOROS: reparte las tarjetas de forma equitativa.
+   - 3 tarjetas: una fila de 3.
+   - 2 tarjetas: cada una ocupa la mitad.
+   - 1 tarjeta: ocupa toda la fila.
+   La clase .sol conserva su diseño especial. */
+ul.topiclist.forums > .row:not(.sol) {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 30%;
+  min-width: 280px;
+}
+
+ul.topiclist.forums > .row:not(.sol) .forito {
+  box-sizing: border-box;
+  width: calc(100% - 20px);
+}
