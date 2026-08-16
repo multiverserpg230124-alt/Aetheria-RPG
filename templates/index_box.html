@@ -1,0 +1,60 @@
+<!-- BEGIN catrow -->
+	<!-- BEGIN tablehead -->
+		<div class="forabg">
+			<ul class="topiclist">
+				<li class="header">
+                                  <div class="titulocate">{catrow.tablehead.L_FORUM}</div>
+				</li>
+			</ul>
+			<ul class="topiclist forums">
+	<!-- END tablehead -->
+
+	<!-- BEGIN forumrow -->
+				<li class="row">
+<div class="forito">
+<div class="tituforo"><bck></bck>
+<h><a href="{catrow.forumrow.U_VIEWFORUM}">{catrow.forumrow.FORUM_NAME}</a></h>
+</div>
+<!-- BEGIN avatar -->
+<avaste>{catrow.forumrow.avatar.LAST_POST_AVATAR}</avaste>
+<!-- END avatar -->
+<div class="descip">{catrow.forumrow.FORUM_DESC}</div>
+<div class="info">
+<posteo>
+<!-- BEGIN switch_topic_title -->
+<nomb>
+<a href="{catrow.forumrow.U_LATEST_TOPIC}" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">{catrow.forumrow.LATEST_TOPIC_NAME}</a>
+  </nomb>
+<!-- END switch_topic_title -->
+{catrow.forumrow.USER_LAST_POST}
+</posteo>
+<conteo>
+  <topics>{catrow.forumrow.TOPICS} <dn>{L_TOPICS}</dn></topics>
+  <postss>{catrow.forumrow.POSTS} <dn>{L_POSTS}</dn></postss>
+</conteo></div>
+<div class="linkus"></div>
+</div>
+				</li>
+	<!-- END forumrow -->
+
+	<!-- BEGIN tablefoot -->
+				</ul>
+
+		</div>
+	<!-- END tablefoot -->
+<!-- END catrow -->
+
+<script type="text/javascript">
+  //<![CDATA[
+$(document).ready(function(){
+$('.row a o').parents('.row').addClass('sol');
+});
+
+ $(function() {
+$('div.forito').each(function() {
+$(this).find('.tituforo bck').prepend($(this).find('.bkc'));
+$(this).find('.linkus').prepend($(this).find('.forlin'));
+  });
+  });
+//]]>
+</script>
