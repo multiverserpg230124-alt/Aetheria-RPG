@@ -1,0 +1,75 @@
+<div id="privmsgs-menu">
+	<div class="ils"><i class="far fa-inbox-in"></i>{INBOX}<div class="active"></div></div>
+	<div class="ils"><i class="far fa-reply-all"></i>{SENTBOX}<div class="active"></div></div>
+	<div class="ils"><i class="far fa-inbox-out"></i>{OUTBOX}<div class="active"></div></div>
+	<div class="ils"><i class="far fa-bookmark"></i>{SAVEBOX}<div class="active"></div></div>
+</div>
+
+<form action="{S_PRIVMSGS_ACTION}" method="post" name="privmsg_list">
+
+<div class="panel">
+	<div class="mpsta">
+	<!-- BEGIN switch_box_size_notice -->
+	<left>{BOX_SIZE_STATUS}</left>
+	<!-- END switch_box_size_notice -->
+	<right>
+		{L_DISPLAY_MESSAGES}: <select name="msgdays">
+		{S_SELECT_MSG_DAYS}
+		</select> <input class="button2" type="submit" name="submit_msgdays" value="{L_GO}" />
+	</right>
+	<div class="clear"></div>
+</div>
+</div>
+  
+<div class="navtop">
+  <bots><a href="/privmsg?mode=post">Nuevo mensaje privado</a></bots>
+  <nub>{PAGINATION}</nub>
+</div>
+
+<div class="forabg">
+<div class="titulocate" style="margin:15px 0 0;"><i class="far fa-mail-bulk"></i><h2>Mensajes Privados</h2></div>
+	<div class="topiclist pmlist bg_none">
+	<!-- BEGIN listrow -->
+	<div class="row {listrow.ROW_CLASS}">
+<div style="position:absolute; width:24px; height:20px; padding-top:20px; padding-left:24px;">{listrow.PRIVMSG_ICON}</div>
+<div id="Temas">
+<div class="icsn"><img src="{listrow.PRIVMSG_FOLDER_IMG}" /></div>
+<div class="mplist">
+				<a href="{listrow.U_READ}" class="topictitle">{listrow.SUBJECT}</a><br />
+                          <span style="margin: 0 5px">{listrow.FROM} <em><span class="sf sf-cross-o"></span></em> {listrow.DATE}</span>
+                          </div><dd class="mark"><input type="checkbox" name="mark[]2" value="{listrow.S_MARK_ID}" /></dd>
+	</div></div>
+	<!-- END listrow -->
+	<!-- BEGIN switch_no_messages -->
+	<div class="row row1">
+<div id="Temas">
+				<strong>{L_NO_MESSAGES}</strong>
+</div>
+	<!-- END switch_no_messages -->
+	</div>
+</div>
+  
+  <div class="navbottom">
+<bots><a href="/privmsg?mode=post">Nuevo mensaje privado</a></bots>
+<red><a href="javascript:select_switch_privmsg(true);">{L_MARK_ALL}</a>
+<a href="javascript:select_switch_privmsg(false);">{L_UNMARK_ALL}</a></red>
+<pag>{PAGINATION}</pag>
+
+</div>
+</div>
+	<div class="pagn">
+		<p>{S_HIDDEN_FIELDS}
+		<!-- BEGIN switch_save -->
+		<input class="button1" type="submit" name="save" value="{L_SAVE_MARKED}" />&nbsp;&nbsp;
+		<!-- END switch_save -->
+		<!-- BEGIN switch_move_profile -->
+		<input class="button1" type="submit" name="moveprofile" value="{L_MOVE_PROFILE_MARKED}" />&nbsp;&nbsp;
+		<!-- END switch_move_profile -->
+		<input class="button2" type="submit" name="delete" value="{L_DELETE_MARKED}" />&nbsp;&nbsp;
+		<input class="button2" type="submit" name="deleteall" value="{L_DELETE_ALL}" /></p>
+
+</div>
+</form>
+<style>.row {padding: 2.5px;}</style>
+<div class="clear"></div>
+<br style="clear:both" />
