@@ -1,0 +1,157 @@
+{JAVASCRIPT}
+{CAT_NAME}
+<br class="clear" />
+
+<!-- BEGIN switch_user_login_form_header -->
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<form action="{S_LOGIN_ACTION}" method="post" name="form_login">
+			<div class="user_login_form center">
+				<label>{L_USERNAME} : <input class="post" type="text" size="10" name="username" /></label>&nbsp;
+				<label>{L_PASSWORD} : <input class="post" type="password" size="10" name="password" /></label>&nbsp;
+				<label>{L_AUTO_LOGIN} : <input class="radio" type="checkbox" name="autologin" {AUTOLOGIN_CHECKED} /></label>&nbsp;
+				{S_HIDDEN_FIELDS}<input class="mainoption button1" type="submit" name="login" value="{L_LOGIN}" />
+
+                <!-- BEGIN switch_social_login -->
+                <div class="social_btn">
+                    <!-- BEGIN fb_connect -->
+                    <div class="fb-login-button"></div>
+                    <!-- END fb_connect -->
+                    <!-- BEGIN topicit_connect -->
+                    <div class="ti-connect"></div>
+                    <!-- END topicit_connect -->
+                </div>
+                <!-- END switch_social_login -->
+			</div>
+		</form>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- END switch_user_login_form_header -->
+
+<!-- BEGIN message_admin_index -->
+	<div class="panel introduction">
+		<div class="inner"><span class="corners-top"><span></span></span>
+	<!-- BEGIN message_admin_titre -->
+		<div class="h3">{message_admin_index.message_admin_titre.MES_TITRE}</div>
+	<!-- END message_admin_titre -->
+
+	<!-- BEGIN message_admin_txt -->
+		<div class="mes-txt">{message_admin_index.message_admin_txt.MES_TXT}</div>
+	<!-- END message_admin_txt -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+<!-- END message_admin_index -->
+
+{CHATBOX_TOP}
+{BOARD_INDEX}
+
+<!-- BEGIN disable_viewonline -->
+<div class="leyenda">
+<dercha>
+<backgro><nme>Multiversum<sb>Estadisticas</sb></nme>
+<linksrs>
+<a href="{U_SEARCH_SELF}">Tus Mensajes</a>
+<a href="{U_SEARCH_NEW}">Nuevos Mensajes</a>
+<a href="{U_TODAY_POSTERS}">Top 20 posteadores del día</a>
+<a href="{U_OVERALL_POSTERS}">Top 20 posteadores del foro</a>
+</linksrs></backgro>
+<lastm><hn>¡Otra estrella ha caido!, bienaventurado seas</hn>
+<b>{NEWEST_USER}</b>
+</lastm>
+</dercha>
+<izquirda>
+<stadis>
+<members><b>{TOTAL_USERS}</b></members>
+<postt><b>{TOTAL_POSTS}</b></postt>
+</stadis>
+<online><h>{TOTAL_USERS_ONLINE}</h>
+<tx>{LOGGED_IN_USER_LIST}{L_ONLINE_USERS}</tx>
+</online>
+<offline><conteo>Ellos visitaron nuestra mundo en las últimas 24 horas</conteo>
+<tx>{L_CONNECTED_MEMBERS}</tx>
+</offline>
+</izquirda>
+</div>
+<div class="grupos">
+<div class="grp g0"><i class="far fa-comet"></i><h>Astraea</h></div>
+<div class="grp g1"><i class="far fa-fire-alt"></i><h>Ember</h></div>
+<div class="grp g2"><i class="far fa-raindrops"></i><h>Abyss</h></div>
+<div class="grp g3"><i class="far fa-wind"></i><h>Glacies</h></div>
+<div class="grp g4"><i class="far fa-seedling"></i><h>Nébula</h></div>
+<div class="grp g5"><i class="far fa-radar"></i><h>Astra</h></div>
+<div class="grp g6"><i class="far fa-comet"></i><h>Titan</h></div>
+<div class="grp g7"><i class="far fa-fire-alt"></i><h>Kaelum</h></div>
+<div class="grp g8"><i class="far fa-raindrops"></i><h>Apex</h></div>
+<div class="grp g9"><i class="far fa-wind"></i><h>Solaris</h></div>
+<div class="grp g10"><i class="far fa-seedling"></i><h>Stasis</h></div>
+</div>
+  
+	<!-- BEGIN switch_chatbox_activate -->
+	<div class="h3"><a href="{S_JOIN_CHAT}" target="ChatBox">{CHATBOX_NAME}</a></div>
+	<div class="page-bottom">
+	{TOTAL_CHATTERS_ONLINE}&nbsp;:&nbsp;
+	{CHATTERS_LIST}<br />
+	</div>
+		<!-- BEGIN switch_chatbox_popup -->
+		<div id="chatbox_popup"></div>
+		<script type="text/javascript">
+		insertChatBoxPopup('{disable_viewonline.switch_chatbox_activate.switch_chatbox_popup.U_FRAME_CHATBOX}', '{L_CLICK_TO_JOIN_CHAT}');
+		</script>
+		<!-- END switch_chatbox_popup -->
+	<!-- END switch_chatbox_activate -->
+<!-- END disable_viewonline -->
+
+{CHATBOX_BOTTOM}
+
+<!-- BEGIN switch_user_login_form_footer -->
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<form action="{S_LOGIN_ACTION}" method="post" name="form_login">
+			<div class="user_login_form center">
+				<label>{L_USERNAME} : <input class="post" type="text" size="10" name="username" /></label>&nbsp;
+				<label>{L_PASSWORD} : <input class="post" type="password" size="10" name="password" /></label>&nbsp;
+				<label>{L_AUTO_LOGIN} : <input class="radio" type="checkbox" name="autologin" {AUTOLOGIN_CHECKED} /></label>&nbsp;
+				{S_HIDDEN_FIELDS}<input class="mainoption button1" type="submit" name="login" value="{L_LOGIN}" />
+
+                <!-- BEGIN switch_social_login -->
+                <div class="social_btn">
+                    <!-- BEGIN fb_connect -->
+                    <div class="fb-login-button"></div>
+                    <!-- END fb_connect -->
+                    <!-- BEGIN topicit_connect -->
+                    <div class="ti-connect"></div>
+                    <!-- END topicit_connect -->
+                </div>
+                <!-- END switch_social_login -->
+			</div>
+		</form>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- END switch_user_login_form_footer -->
+
+<br style="clear:both" />
+
+{AUTO_DST}
+
+<script type="text/javascript">
+  //<![CDATA[
+$(function(){$("div.leyenda").each(function(){$(this).html($(this).html().replace("Miembros conectados en las últimas 24 horas: ","")
+.replace("Usuarios registrados: ","")
+.replace("En total hay","Online ")
+.replace("usuario en línea:",":")
+.replace("usuarios en línea:",":")
+.replace("Registrado,","Estrella<y>")
+.replace("Registrados,","Estrellas<y>")
+.replace("Invitado","Polvo")
+.replace("Invitados","Polvos")
+  .replace("Ocultos y","</y> &")
+.replace("Oculto y","</y> &")
+.replace("El último usuario registrado es","")
+.replace("Nuestros miembros han publicado un total de","")
+.replace("Tenemos ","")
+ .replace("miembro registrado.","<i>Estrella</i>")
+ .replace("miembros registrados","<i>Estrellas</i>")
+ .replace("mensajes","<i>Historias</i>")
+)})});
+  //]]>
+</script>
