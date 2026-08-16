@@ -1,0 +1,33 @@
+{BOARD_INDEX}
+
+<div class="navtop">
+<!-- BEGIN switch_user_authpost -->
+  <bots><a href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow">{L_POST_NEW_TOPIC}</a></bots>
+<!-- END switch_user_authpost -->
+  <nub> <a class="nav" href="{U_INDEX}">{L_INDEX}</a>{NAV_CAT_DESC}</nub></div>
+
+{TOPICS_LIST_BOX}
+
+<div class="navbottom">
+<!-- BEGIN switch_user_authpost -->
+  <bots><a href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow">{L_POST_NEW_TOPIC}</a></bots>
+<!-- END switch_user_authpost -->
+<red><a href="{U_MARK_READ}">{L_MARK_TOPICS_READ}</a>
+{S_WATCH_FORUM}
+</red>
+<pag>{PAGINATION}</pag>
+</div>
+
+<div class="clear"></div>
+<div class="topicactions">
+<div id="infopen">
+<div class="h3">{L_TABS_PERMISSIONS}</div>
+<p>{S_AUTH_LIST}</p>
+</div>
+  <form action="{S_JUMPBOX_ACTION}" method="get" name="jumpbox" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+	<fieldset class="vf_jumpbox">
+		<label>{L_JUMP_TO}:&nbsp;</label>
+		{S_JUMPBOX_SELECT}&nbsp;
+		<input class="button2" type="submit" value="{L_GO}" />
+	</fieldset>
+  </form></div>
