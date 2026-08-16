@@ -44,23 +44,26 @@ body.usergroup-tortu {
   --gr1: linear-gradient(225deg,#cf9d36,#d15151);
 }
 /*cuerpo*/
-body{
-  --to1:10,10,10;
-  --to2:#141414;
-  --to3:#fafafa;
-  --to4:#eee;
-  --to5:#bfbfbf;
-  --to6: #1a3b57;
-  --to7: #8e2a61;
-  --to8: #cf933a;
-  --to9:#1a1a1a;
-  --to10:#111;
-  --gr1: linear-gradient(225deg, #316d89, #c93486);
+body {
+  /* Modo oscuro: azul profundo, lila suave y texto cómodo de leer. */
+  --to1: 12, 12, 20;
+  --to2: #191724;
+  --to3: #f7f3ff;
+  --to4: #e8e1f2;
+  --to5: #c1b9ce;
+  --to6: #416f9c;
+  --to7: #9566a8;
+  --to8: #8a80c5;
+  --to9: #2a2738;
+  --to10: #11101a;
+  --gr1: linear-gradient(225deg, #4d78a7, #9b6eab);
+
   --oo2: Poppins;
   --oo3: "Neuropol x";
   --oo4: "Distant Galaxy";
   --oo5: "Distant Galaxy Outline";
   --oo6: "Prometheus";
+}
   background-color: rgba(var(--to1));
   color: var(--to5);
   font-family: arial;
