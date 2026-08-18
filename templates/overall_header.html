@@ -1,514 +1,376 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" id="min-width" lang="{L_LANG_HTML}"
-	  xml:lang="{L_LANG_HTML}" {NAMESPACE_FB_LIKE} {NAMESPACE_FB} {NAMESPACE_BBCODE}>
-<head>
-	<title>{SITENAME_TITLE}{PAGE_TITLE}</title>
-	<meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}"/>
-	<meta http-equiv="content-script-type" content="text/javascript"/>
-	<meta http-equiv="content-style-type" content="text/css"/>
-	<!-- BEGIN switch_compat_meta -->
-	<meta http-equiv="X-UA-Compatible" content="IE={switch_compat_meta.VERSION}"/>
-	<!-- END switch_compat_meta -->
-	<!-- BEGIN switch_canonical_url -->
-	<link rel="canonical" href="{switch_canonical_url.CANONICAL_URL}"/>
-	<!-- END switch_canonical_url -->
-	{META_FAVICO}
-	{META}
-	{META_FB_LIKE}
-	<meta name="title" content="{SITENAME_TITLE}{PAGE_TITLE}"/>
-	{T_HEAD_STYLESHEET}
-	{CSS}
-	<link rel="search" type="application/opensearchdescription+xml" href="/improvedsearch.xml" title="{SITENAME}"/>
-	<link rel="search" type="application/opensearchdescription+xml" href="{URL_BOARD_DIRECTORY}/search/improvedsearch.xml" title="{SEARCH_FORUMS}"/>
-	<script src="{JQUERY_PATH}" type="text/javascript"></script>
-	<!-- BEGIN switch_recent_jquery -->
-	<script src="{JS_DIR}jquery1.9/jquery-migrate-1.4.1.js" type="text/javascript"></script>
-	<script src="{JQUERY_DIR}browser/v1.0/jquery.browser.min.js" type="text/javascript"></script>
-	<script src="{JQUERY_DIR}support/jquery.support.js" type="text/javascript"></script>
-	<!-- END switch_recent_jquery -->
-	<script src="{JS_DIR}{L_LANG}.js" type="text/javascript"></script>
-	{RICH_SNIPPET_GOOGLE}
+<!-- BEGIN switch_plus_menu -->
+<script type="text/javascript">
+	//<![CDATA[
+	var multiquote_img_off = '{JS_MULTIQUOTE_IMG_OFF}', multiquote_img_on = '{JS_MULTIQUOTE_IMG_ON}';
+</script>
+<!-- END switch_plus_menu -->
+<script type="text/javascript">
+var hiddenMsgLabel = { visible:'{JS_HIDE_HIDDEN_MESSAGE}', hidden:'{JS_SHOW_HIDDEN_MESSAGE}' };
+showHiddenMessage = function(id)
+{
+    try
+    {
+        var regId = parseInt(id, 10);
+        if( isNaN(regId) ) { regId = 0; }
 
-	<!-- BEGIN switch_fb_login -->
-	<script src="https://connect.facebook.net/{switch_fb_login.FB_LOCAL}/all.js" type="text/javascript"></script>
-	<script src="{switch_fb_login.JS_FB_LOGIN}" type="text/javascript"></script>
-	<!-- END switch_fb_login -->
-
-	<!-- BEGIN switch_ticker -->
-	<link type="text/css" rel="stylesheet" href="{JQUERY_DIR}ticker/ticker.css"/>
-	<script src="{JQUERY_DIR}ticker/ticker.js" type="text/javascript"></script>
-	<!-- END switch_ticker -->
-
-	<!-- BEGIN switch_ticker_new -->
-	<script src="{JQUERY_DIR}jcarousel/jquery.jcarousel.js" type="text/javascript"></script>
-	<script type="text/javascript">//<![CDATA[
-		/* Definir le sens de direction en fonction du panneau admin */
-		var tickerDirParam = "{switch_ticker.DIRECTION}";
-		var slid_vert = false;
-		var auto_dir = 'next';
-		var h_perso = parseInt({switch_ticker.HEIGHT});
-
-		switch (tickerDirParam) {
-			case 'top' :
-				slid_vert = true;
-				break;
-
-			case 'left':
-				break;
-
-			case 'bottom':
-				slid_vert = true;
-				auto_dir = 'prev';
-				break;
-
-			case 'right':
-				auto_dir = 'prev';
-				break;
-
-			default:
-				slid_vert = true;
-		}
-
-		$(document).ready(function () {
-
-			$('#fa_ticker_content').css('display', 'block');
-
-			var width_max = $('ul#fa_ticker_content').width();
-			var width_item = Math.floor(width_max / {switch_ticker.SIZE});
-
-			if (width_max > 0) {
-				$('ul#fa_ticker_content li').css('float', 'left').css('list-style', 'none').width(width_item).find('img').each(function () {
-					if ($(this).width() > width_item) {
-						var ratio = $(this).width() / width_item;
-						var new_height = Math.round($(this).height() / ratio);
-						$(this).height(new_height).width(width_item);
-					}
-				});
-
-				if (slid_vert) {
-					var height_max = h_perso;
-
-					$('ul#fa_ticker_content li').each(function () {
-						if ($(this).height() > height_max) {
-							height_max = $(this).height();
-						}
-					});
-
-					$('ul#fa_ticker_content').width(width_item).height(height_max).css('marginLeft', 'auto').css('marginRight', 'auto');
-					$('ul#fa_ticker_content li').height(height_max);
+        if( regId > 0)
+        {
+            $('.post--' + id).toggle(0, function()
+			{
+				if( $(this).is(":visible") )
+				{
+					$('#hidden-title--' + id).html(hiddenMsgLabel.visible);
 				}
-
-
-				$('#fa_ticker_content').jcarousel({
-					vertical: slid_vert,
-					wrap: 'circular',
-					auto: {switch_ticker.STOP_TIME},
-					auto_direction: auto_dir,
-					scroll: 1,
-					size: {switch_ticker.SIZE},
-					height_max: height_max,
-					animation: {switch_ticker.SPEED}
-				});
-			} else {
-				$('ul#fa_ticker_content li:not(:first)').css('display', 'none');
-				$('ul#fa_ticker_content li:first').css('list-style', 'none').css('text-align', 'center');
-			}
-		});
-		//]]>
-	</script>
-	<!-- END switch_ticker_new -->
-
-	<script type="text/javascript">//<![CDATA[
-		$(document).ready(function () {
-			<!-- BEGIN switch_enable_pm_popup -->
-			pm = window.open('{U_PRIVATEMSGS_POPUP}', '_faprivmsg', 'HEIGHT=225,resizable=yes,WIDTH=400');
-			if (pm != null) {
-				pm.focus();
-			}
-			<!-- END switch_enable_pm_popup -->
-			<!-- BEGIN switch_report_popup -->
-			report = window.open('{switch_report_popup.U_REPORT_POPUP}', '_phpbbreport', 'HEIGHT={switch_report_popup.S_HEIGHT},resizable=yes,scrollbars=no,WIDTH={switch_report_popup.S_WIDTH}');
-			if (report != null) {
-				report.focus();
-			}
-			<!-- END switch_report_popup -->
-			<!-- BEGIN switch_ticker -->
-			$(document).ready(function () {
-				Ticker.start({
-					height: {switch_ticker.HEIGHT},
-					spacing: {switch_ticker.SPACING},
-					speed: {switch_ticker.SPEED},
-					direction: '{switch_ticker.DIRECTION}',
-					pause: {switch_ticker.STOP_TIME}
-				});
+				else
+				{
+					$('#hidden-title--' + id).html(hiddenMsgLabel.hidden);
+				}
 			});
-			<!-- END switch_ticker -->
-		});
+        }
+    }
+    catch(e) { }
 
-		<!-- BEGIN switch_login_popup -->
-		var logInPopUpLeft, logInPopUpTop, logInPopUpWidth = {LOGIN_POPUP_WIDTH},
-			logInPopUpHeight = {LOGIN_POPUP_HEIGHT}, logInBackgroundResize = true, logInBackgroundClass = false;
-		<!-- END switch_login_popup -->
+	return false;
+};
 
-		<!-- BEGIN switch_login_popup -->
-		$(document).ready(function () {
-			$(window).resize(function () {
-				var windowWidth = document.documentElement.clientWidth;
-				var popupWidth = $("#login_popup").width();
-				var mypopup = $("#login_popup");
+//]]>
+</script>
 
-				$("#login_popup").css({
-					"left": windowWidth / 2 - popupWidth / 2
-				});
-			});
-		});
-		<!-- END switch_login_popup -->
-$(document).ready(function(){          
-     $('#bbot').click(function(){
-        $('html, body').animate({ scrollTop: $(document).height() },800);
-        return false;
-    }); 
-});          
-		//]]>
-	</script>
-	{GREETING_POPUP}
-	<style type="text/css">
-		#page-footer, div.navbar, div.navbar ul.linklist {
-			display: block !important;
-		}
+<div class="titulocate conlink"><h2><a href="{TOPIC_URL}">{TOPIC_TITLE}</a></h2></div>
 
-		ul.linklist li.rightside, ul.linklist li.rightside a.copyright {
-			display: inline !important;
-		}
+<div class="navtop">
+<!-- BEGIN switch_user_authpost -->
+<bots><a href="{U_POST_NEW_TOPIC}" rel="nofollow">{L_POST_NEW_TOPIC}</a></bots>
+<!-- END switch_user_authpost -->
+<!-- BEGIN switch_user_authreply -->
+<bots><a href="{U_POST_REPLY_TOPIC}">{L_POST_REPLY_TOPIC}</a></bots>
+<!-- END switch_user_authreply -->
+<nub><a class="nav" href="{U_INDEX}">{L_INDEX}</a>{NAV_CAT_DESC}</nub>
+</div>
 
-		<!-- BEGIN switch_ticker_new -->
-		.jcarousel-skin-tango .jcarousel-item {
-			text-align: center;
-			width: 10px;
-		}
+{POLL_DISPLAY}
 
-		.jcarousel-skin-tango .jcarousel-item-horizontal {
-			margin-right: {switch_ticker.SPACING}px;
-		}
+<!-- BEGIN postrow -->
+	<!-- BEGIN hidden -->
+		<div class="post {postrow.hidden.ROW_COUNT}">
+			<div class="inner">
+				<span class="corners-top"><span></span></span>
+				<p style="text-align:center">{postrow.hidden.MESSAGE}</p>
+				<div class="clear"></div>
+				<span class="corners-bottom"><span></span></span>
+			</div>
+		</div>
+	<!-- END hidden -->
+	<!-- BEGIN displayed -->
+<div id="p{postrow.displayed.U_POST_ID}" class="post {postrow.displayed.ROW_COUNT}{postrow.displayed.ONLINE_IMG_NEW} post--{postrow.displayed.U_POST_ID}"{postrow.displayed.THANK_BGCOLOR} style="{postrow.displayed.DISPLAYABLE_STATE}">
+<div style="position: relative; top: -30px; width: 1px;" id="{postrow.displayed.U_POST_ID}"></div>
+<div class="contenedorpost">
+<div class="infosuper">
+  <lisk><a href="{postrow.displayed.POST_URL}"><i class="fas fa-external-link"></i></a></lisk>
+  <pst><b>Autor:</b> {postrow.displayed.POSTER_NAME}</pst>
+  <date><b>Fecha:</b> {postrow.displayed.POST_DATE_NEW}</date>
+</div>
+<div class="posteodentro">
+<div class="avatare">
+  <rango><m>{postrow.displayed.POSTER_RANK_NEW}</m></rango>
+<contes><mens></mens><puns></puns></contes>
+<div class="postprofile" id="profile{postrow.displayed.U_POST_ID}">
+<div id="ConGvPr">
+<div class="SeImg">{postrow.displayed.POSTER_AVATAR}</div>
+<div id="Cont">
+<inff>
+<!-- BEGIN profile_field -->
+<div class="GvC">
+<span class="poste-label">{postrow.displayed.profile_field.LABEL}</span>
+<conts>{postrow.displayed.profile_field.CONTENT}</conts>
+</div>
+<!-- END profile_field -->
+</inff>
+</div>
+</div></div>
+<linkesos>
+{postrow.displayed.PROFILE_IMG}
+{postrow.displayed.PM_IMG}
+<!-- BEGIN contact_field -->{postrow.displayed.contact_field.CONTENT}<!-- END contact_field -->
+</linkesos>
+</div>
+<div class="mensajeros">
+<div class="topetero">
+<name>{postrow.displayed.POSTER_NAME}</name>
+<ico></ico>
+</div>
+<div class="postaqui">
+			<div class="postbody">
+					<div>{postrow.displayed.MESSAGE}</div>
+						<!-- BEGIN switch_attachments -->
+						<dl class="attachbox">
+							<dt>{postrow.displayed.switch_attachments.L_ATTACHMENTS}</dt>
+							<dd class="attachments">
+								<!-- BEGIN switch_post_attachments -->
+								<dl class="file clearfix">
+									<dt>
+										<img src="{postrow.displayed.switch_attachments.switch_post_attachments.U_IMG}" alt=""/>
+									</dt>
+									<dd>
+										<!-- BEGIN switch_dl_att -->
+										<span><a class="postlink" href="{postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.U_ATTACHMENT}">{postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.ATTACHMENT}</a> {postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.ATTACHMENT_DEL}</span>
+										<!-- END switch_dl_att -->
 
-		.jcarousel-skin-tango .jcarousel-item-vertical {
-			margin-bottom: {switch_ticker.SPACING}px;
-		}
+										<!-- BEGIN switch_no_dl_att -->
+										<span>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.ATTACHMENT} {postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.ATTACHMENT_DEL}</span>
+										<!-- END switch_no_dl_att -->
 
-		<!-- END switch_ticker_new -->
-          
-@-webkit-keyframes pulsate-fwd {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-@keyframes pulsate-fwd {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
+										<!-- BEGIN switch_no_comment -->
+										<span>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_comment.ATTACHMENT_COMMENT}</span>
+										<!-- END switch_no_comment -->
 
-	</style>
-	{HOSTING_JS}
+										<!-- BEGIN switch_no_dl_att -->
+										<span><strong>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.TEXT_NO_DL}</strong></span>
+										<!-- END switch_no_dl_att -->
 
-	<!-- BEGIN google_analytics_code -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id={G_ANALYTICS_ID}"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', '{G_ANALYTICS_ID}', {'anonymize_ip': true, 'store_gac': false, 'cookie_expires': 13 * 30 * 24 * 60 * 60});
-		<!-- BEGIN google_analytics_code_bis -->
-		gtag('config', '{G_ANALYTICS_ID_BIS}', {'anonymize_ip': true, 'store_gac': false, 'cookie_expires': 13 * 30 * 24 * 60 * 60});
-		<!-- END google_analytics_code_bis -->
-	</script>
-	<!-- END google_analytics_code -->
-  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://dl.dropbox.com/s/zfrx5kq7m5ijodd/fontsmaer.css" rel="stylesheet" />
-  <link href="https://dl.dropbox.com/s/5q0tr9f3yulbdwd/lolmapus.css" rel="stylesheet" />
-  <link href="//solrainha.github.io/saturnicons/saturnicons.css" rel="stylesheet" />
-  <link href="//solrainha.github.io/honeybee/honeybee.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
-  <link rel="stylesheet" href="https://nagoshiashumari.github.io/Rpg-Awesome/stylesheets/rpg-awesome.min.css" />
-  <link rel="stylesheet" href="https://cloudflare.com"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://necodemancer.github.io/skins/iconfonts/game-icons/game-icons.css"><link rel="stylesheet" href="https://cloudflare.com"><link rel="stylesheet" href="//dl.dropbox.com/s/uw6kyypbcw9hb3j/icofont.min.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fleur+De+Leah&family=Grenze+Gotisch:wght@100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Quicksand:wght@400;600&display=swap" /> 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+										<span>({postrow.displayed.switch_attachments.switch_post_attachments.FILE_SIZE}) {postrow.displayed.switch_attachments.switch_post_attachments.NB_DL}</span>
+									</dd>
+								</dl>
+								<!-- END switch_post_attachments -->
+							</dd>
+						</dl>
+						<!-- END switch_attachments -->
+				<!-- BEGIN switch_signature -->
+				<div class="signature_div" id="sig{postrow.displayed.U_POST_ID}">{postrow.displayed.SIGNATURE_NEW}</div>
+				<!-- END switch_signature -->
+			</div>
+<div class="modes">
+{postrow.displayed.QUOTE_IMG}
+{postrow.displayed.EDIT_IMG}
+{postrow.displayed.DELETE_IMG}
+{postrow.displayed.IP_IMG}
+</div>
+</div>
+</div>
+</div>
+<div class="bottones"><inven></inven>
+  <!-- BEGIN switch_likes_active -->
+			<div class="fa_like_div">
+				<!-- BEGIN switch_like_list -->
+				{postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
+				<!-- END switch_like_list -->
+				<!-- BEGIN switch_dislike_list -->
+				{postrow.displayed.switch_likes_active.switch_dislike_list.D_DISLIKE_LIST}
+				<!-- END switch_dislike_list -->
+				<button class="rep-button {postrow.displayed.switch_likes_active.C_VOTE_LIKE}"  data-href="{postrow.displayed.switch_likes_active.U_VOTE_LIKE}" data-href-rm="{postrow.displayed.switch_likes_active.U_VOTE_RM_LIKE}">
+					<svg width="13px" height="13px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z" fill="#666"/></svg>
+					<span>{postrow.displayed.switch_likes_active.L_LIKE}</span>{postrow.displayed.switch_likes_active.COUNT_VOTE_LIKE}
+				</button>
+				<!-- BEGIN switch_dislike_button -->
+				<button class="rep-button {postrow.displayed.switch_likes_active.switch_dislike_button.C_VOTE_DISLIKE}" data-href="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_DISLIKE}" data-href-rm="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_RM_LIKE}">
+					<svg width="13px" height="13px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 576q0 26-19 45t-45 19q-27 0-45.5-19t-18.5-45q0-27 18.5-45.5t45.5-18.5q26 0 45 18.5t19 45.5zm160 512v-640q0-26-19-45t-45-19h-288q-26 0-45 19t-19 45v640q0 26 19 45t45 19h288q26 0 45-19t19-45zm1129-149q55 61 55 149-1 78-57.5 135t-134.5 57h-277q4 14 8 24t11 22 10 18q18 37 27 57t19 58.5 10 76.5q0 24-.5 39t-5 45-12 50-24 45-40 40.5-60 26-82.5 10.5q-26 0-45-19-20-20-34-50t-19.5-52-12.5-61q-9-42-13.5-60.5t-17.5-48.5-31-48q-33-33-101-120-49-64-101-121t-76-59q-25-2-43-20.5t-18-43.5v-641q0-26 19-44.5t45-19.5q35-1 158-44 77-26 120.5-39.5t121.5-29 144-15.5h129q133 2 197 78 58 69 49 181 39 37 54 94 17 61 0 117 46 61 43 137 0 32-15 76z" fill="#666"/></svg>
+					<span>{postrow.displayed.switch_likes_active.switch_dislike_button.L_DISLIKE}</span>{postrow.displayed.switch_likes_active.switch_dislike_button.COUNT_VOTE_DISLIKE}
+				</button>
+				<!-- END switch_dislike_button -->
+			</div>
+			<!-- END switch_likes_active -->
+</div>
+</div>
+</div>
+		<!-- BEGIN first_post_br -->
+<div class="antes"><i class="fas fa-arrow-up"></i><b>Primer mensaje</b><i class="fas fa-arrow-up"></i></div>
+		<!-- END first_post_br -->
+	<!-- END displayed -->
+<!-- END postrow -->
 
-  
-<script src="https://dl.dropbox.com/s/kq6p7noijm83p7o/nocti.js"></script>
-<script src="https://static.tumblr.com/zd7jnbb/TDPpnlgj3/jquery.style-my-tooltips.js"></script>
-<link href="https://static.tumblr.com/zd7jnbb/nzwpnlgii/style-my-tooltips.css" />
-<script>(function($){$(document).ready(function(){$("[title]").style_my_tooltips({tip_follows_cursor:true,tip_delay_time:0,tip_fade_speed:0 });});})(jQuery);</script>
-<script type="text/javascript">function selectCode(e) {var doc = document, text = $(e).closest("dl").find(".cont_code,code").get(0), range, selection;if (doc.body.createTextRange) {range = document.body.createTextRange();range.moveToElementText(text);range.select();} else if (window.getSelection) {selection = window.getSelection();        range = document.createRange();range.selectNodeContents(text);selection.removeAllRanges();selection.addRange(range);}};</script>
-</head>
-            
+<a name="bottomtitle"></a>
+
+<div class="navbottom">
+<!-- BEGIN switch_user_authpost -->
+<bots><a href="{U_POST_NEW_TOPIC}" rel="nofollow">{L_POST_NEW_TOPIC}</a></bots>
+<!-- END switch_user_authpost -->
+<!-- BEGIN switch_user_authreply -->
+<bots><a href="{U_POST_REPLY_TOPIC}">{L_POST_REPLY_TOPIC}</a></bots>
+<!-- END switch_user_authreply -->
+<!-- BEGIN switch_user_logged_in -->
+<!-- BEGIN watchtopic -->
+<red>{S_WATCH_TOPIC}</red>
+<!-- END watchtopic -->
+<!-- END switch_user_logged_in -->
+<!-- BEGIN topicpagination -->
+<pag>{PAGINATION}</pag>
+<!-- END topicpagination -->
+</div>
+
+<div class="clear"></div>
+
+<!-- BEGIN promot_trafic -->
+<div class="post row2" id="ptrafic_close" style="display:none;font-size:1.3em;line-height:1.4em">
+	<span class="corners-top"><span></span></span>
+	<span class="gensmall"><a href="javascript:ShowHideLayer('ptrafic_open','ptrafic_close');"><img src="{TABS_MORE_IMG}" alt="+" align="" border="0" /></a></span>
+	<span class="ptrafic">&nbsp;{PROMOT_TRAFIC_TITLE}</span>
+	<span class="corners-bottom"><span></span></span>
+</div>
+<div class="post row2" id="ptrafic_open" style="display:'';font-size:1.3em;line-height:1.4em">
+	<span class="corners-top"><span></span></span>
+	<span class="gensmall"><a href="javascript:ShowHideLayer('ptrafic_open','ptrafic_close');"><img src="{TABS_LESS_IMG}" alt="-" align="" border="0" /></a></span>
+	<span class="ptrafic">&nbsp;{PROMOT_TRAFIC_TITLE}</span>
+	<div class="clear"></div>
+	<div>
+		<!-- BEGIN link -->
+		&raquo;&nbsp;<a href="{promot_trafic.link.U_HREF}" title="{promot_trafic.link.TITLE}" rel="nofollow">{promot_trafic.link.TITLE}</a><br />
+		<!-- END link -->
+	</div>
+	<span class="corners-bottom"><span></span></span>
+</div>
+<!-- END promot_trafic -->
+
+<!-- BEGIN switch_forum_rules -->
+<div class="post row1" id="forum_rules">
+	<span class="corners-top"><span></span></span>
+	<div class="h3">&nbsp;{L_FORUM_RULES}</div>
+	<div class="clear"></div>
+	<table class="postbody">
+		<tr>
+			<!-- BEGIN switch_forum_rule_image -->
+			<td class="logo">
+				<img src="{RULE_IMG_URL}" alt="" />
+			</td>
+			<!-- END switch_forum_rule_image -->
+			<td class="rules content">
+				{RULE_MSG}
+			</td>
+		</tr>
+	</table>
+	<span class="corners-bottom"><span></span></span>
+</div>
+<!-- END switch_forum_rules -->
+<div class="respuestarapida">
+<!-- BEGIN switch_user_logged_in -->
+<a name="quickreply"></a>
+{QUICK_REPLY_FORM}
+<!-- END switch_user_logged_in -->
+</div>
+<div class="clear"></div>
+
+<div class="topicactions">
+<div id="infopen">
+<!-- BEGIN show_permissions -->
+	<div class="h3">{L_TABS_PERMISSIONS}</div>
+  <p>{S_AUTH_LIST}</p>
+<!-- END show_permissions -->
+</div>
+<div id="acts">
+<form action="{S_JUMPBOX_ACTION}" method="get" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+<fieldset class="jumpbox">
+	<label>{L_JUMP_TO}:&nbsp;</label>
+	{S_JUMPBOX_SELECT}&nbsp;
+	<input class="button2" type="submit" value="{L_GO}" />
+</fieldset>
+</form>
+
+<!-- BEGIN viewtopic_bottom -->
+<form method="get" action="{S_FORM_MOD_ACTION}">
+<fieldset class="quickmod">
+	<input type="hidden" name="t" value="{TOPIC_ID}" />
+
+	<!-- <input type="hidden" name="sid" value="{S_SID}" /> -->
+	<input type="hidden" name="{SECURE_ID_NAME}" value="{SECURE_ID_VALUE}" />
+	<label>{L_MOD_TOOLS}:&nbsp;</label>
+	{S_SELECT_MOD}&nbsp;
+	<input class="button2" type="submit" value="{L_GO}" />
+</fieldset>
+</form>
+<div class="clear"></div>
+<p class="right">{S_TOPIC_ADMIN}</p>
+<!-- END viewtopic_bottom -->
+</div></div>
+
+<!-- BEGIN switch_image_resize -->
 <script type="text/javascript">
 //<![CDATA[
-$(document).ready(function() {
-   $('a.mainmenu[href^="/privmsg"] .new-message').appendTo($(".msj"));
-});
-$(document).ready(function(){$('.mod-row').appendTo('.ultimostemas')});
-      
-$(document).ready(function(){$('#finalforo').appendTo('.finalforo')});
-  
-$(function(){$("span.new-message").each(function(){$(this).html($(this).html().replace("Tienes ","")
-.replace("nuevo mensaje","")
-.replace("nuevos mensajes","")
-)})});
- 
-   $(function() {
-$('body').each(function() {
-$(this).find('.notificaciones').prepend($(this).find('a#fa_notifications'));
+$(resize_images({ 'selector' : '.postbody .content', 'max_width' : {switch_image_resize.IMG_RESIZE_WIDTH}, 'max_height' : {switch_image_resize.IMG_RESIZE_HEIGHT} }));
+//]]>
+</script>
+<!-- END switch_image_resize -->
+<script type="text/javascript">
+  //<![CDATA[
+  $('name span').each(function () {
+    var memberColour = $(this).css('color');
+    $(this).parents('.post').attr('style', '--pj:' + memberColour + ';');
   });
+
+  $(document).ready(function () {
+    /* Botones de acciones de cada mensaje. */
+    $('.modes img[src*="icon_post_quote"]')
+      .replaceWith('<i class="far fa-window-restore" title="Citar"></i>');
+
+    $('.modes img[src*="icon_post_edit"]')
+      .replaceWith('<i class="far fa-edit" title="Editar"></i>');
+
+    $('.modes img[src*="icon_post_delete"]')
+      .replaceWith('<i class="far fa-trash" title="Borrar"></i>');
+
+    $('.modes img[src*="icon_post_info"]')
+      .replaceWith('<i class="fad fa-wifi-2" title="IP"></i>');
+
+    /* Botones que aparecen debajo del avatar. */
+    $('linkesos').each(function () {
+      var botones = $(this);
+      var enlaces = botones.find('a');
+
+      /* Perfil y Mensaje Privado. */
+      enlaces
+        .find('img[src*="icon_user_profile"]')
+        .replaceWith('Perfil');
+
+      enlaces
+        .find('img[src*="icon_contact_pm"]')
+        .replaceWith('Mensaje Privado');
+
+      /* Encuentra y corrige Lista Estrellada. */
+      var botonLista = enlaces.filter(function () {
+        var texto = $.trim($(this).text()).toLowerCase();
+        var imagen = ($(this).find('img').attr('src') || '').toLowerCase();
+
+        return texto.indexOf('lista estrellada') !== -1 ||
+          imagen.indexOf('icon_contact_www') !== -1;
+      }).first();
+
+      if (botonLista.length) {
+        botonLista.empty().text('Lista Estrellada');
+        botonLista.attr('title', 'Lista Estrellada');
+      }
+
+      /* Encuentra el Baúl:
+         puede contener una imagen rota, la palabra Baúl o una URL completa. */
+      var botonBaul = enlaces.not(botonLista).filter(function () {
+        var texto = $.trim($(this).text()).toLowerCase();
+        var imagen = ($(this).find('img').attr('src') || '').toLowerCase();
+
+        return texto.indexOf('baúl') !== -1 ||
+          texto.indexOf('baul') !== -1 ||
+          texto.indexOf('http://') === 0 ||
+          texto.indexOf('https://') === 0 ||
+          imagen.indexOf('box') !== -1;
+      }).first();
+
+      if (botonBaul.length) {
+        /* Conserva el enlace, pero borra la URL y la imagen rota. */
+        botonBaul.empty().text('Baúl');
+        botonBaul.attr('title', 'Baúl');
+
+        /* Lo coloca debajo de Lista Estrellada. */
+        if (botonLista.length) {
+          botonBaul.insertAfter(botonLista);
+        }
+      }
+    });
   });
-$(document).ready(function(){
-$('img[src="https://2img.net/i/fa/subsilver/wysiwyg/smilie.gif"]').replaceWith('<i class="far fa-smile"></i>');
-  });  
+
+  /* Reacomoda los campos del perfil dentro de cada post. */
+  $(function () {
+    $('div.post').each(function () {
+      $(this).find('mens').prepend($(this).find('.GvC.mensajes'));
+      $(this).find('puns').prepend($(this).find('.GvC.puntos'));
+      $(this).find('.topetero ico').prepend($(this).find('.GvC.mini'));
+      $(this).find('.bottones inven').prepend($(this).find('.GvC.inventario'));
+    });
+  });
   //]]>
 </script>
-            
-<body id="phpbb">
-<!-- BEGIN hitskin_preview -->
-<div id="hitskin_preview" style="display: block;">
-	<h1><img src="https://2img.net/i/fa/hitskin/hitskin_logo.png" alt=""/> <em>Hit</em>skin.com</h1>
-	<div class="content">
-		<p>
-			{hitskin_preview.L_THEME_SITE_PREVIEW}
-			<br/>
-			<span>{hitskin_preview.U_INSTALL_THEME}<a
-						href="https://{hitskin_preview.U_RETURN_THEME}">{hitskin_preview.L_RETURN_THEME}</a></span>
-		</p>
-
-	</div>
-</div>
-<!-- END hitskin_preview -->
-
-   
-<div class="conteneur_minwidth_IE usergroup-">
-	<div class="conteneur_layout_IE">
-		<div class="conteneur_container_IE">
-			<div id="wrap">
-				<a id="top" name="top" accesskey="t"></a>
-				{JAVASCRIPT}
-
-				<div id="page-header">
-<div class="cabecera">
-<div class="astronauta"></div>
-<a href="/" class="multiver"></a>
-<div class="Cbar">
-<a href="{U_INDEX}" title="Inicio"><i class="game-icon game-icon-solar-system"></i> <n>indice</n></a>
-<a href="/memberlist" title="Nuestros Miembros"><i class="game-icon game-icon-bookmark"></i> <n>miembros</n></a>
-
-<!-- BEGIN switch_user_logged_in -->
-<a href="/profile?mode=editprofile" title="Editar Perfil"><i class="game-icon game-icon-pencil-brush"></i> <n>editar perfil</n></a>
-<a href="/privmsg?folder=inbox" class="msj" title="Mensajería"><i class="game-icon game-icon-envelope"></i> <n>mensajeria</n></a>
-<a href="/login?logout=1" title="Desconectarse"><i class="icofont-toggle-off"></i> <n>cerrar sesion</n></a>
-  <div class="notificaciones"></div>
-<!-- END switch_user_logged_in -->
-
-<!-- BEGIN switch_user_logged_out -->
-<a href="/login" title="Conectarse"><i class="icofont-toggle-on"></i> <n>abrir sesion</n></a>
-  <a href="/register" title="¡Únete!"><i class="icofont-plus-circle"></i> <n>crear cuenta</n></a>
-<!-- END switch_user_logged_out -->
-</div>
-<div class="tablon">
-<div class="titutablon">Aetheria</div>
-<izquierda>
-<stff class="stf1" title="Aetheria">
-<a href="">
-<img src="https://imgur.com/APj2pG9.jpeg"/>
-<h>A</h>
-</a>
-</stff>
-<stff class="stf2" title="The Weaver">
-<a href="">
-<img src="https://imgur.com/dWuuxb3.jpeg"/>
-<h>W</h>
-</a>
-</stff>
-<stff class="stf3" title="Nexus">
-<a href="">
-<img src="https://imgur.com/QTXJpID.jpeg"/>
-<h>N</h>
-</a>
-</stff>
-</izquierda>
-<derecha>
-<info><h>Bienvenidos a Aetheria</h>
-<tx>Lorem ipsum dolor sit amet, cu omnis harum delicata nec. Te pro qualisque forensibus, no vix nostro necessitatibus, ei enim offendit usu. Sea mazim verear apeirian in, ea munere ignota repudiandae per, ad sea minim partiendo. Eum autem mollis ex, errem bonorum sapientem no eam, ad vim audire repudiandae. Te eos causae volutpat, sit decore quaeque ne.</tx>
-</info>
-<casas>
-<cosi class="g1" title="Ember">
-<i class="game-icon game-icon-footsteps"></i>
-<num>000</num>
-</cosi>
-<cosi class="g2" title="Abyss">
-<i class="game-icon game-icon-black-hole-bolas"></i>
-<num>000</num>
-</cosi>
-<cosi class="g3" title="Glacies">
-<i class="far fa-snowflake"></i>
-<num>000</num>
-</cosi>
-<cosi class="g4" title="Nebula">
-<i class="game-icon game-icon-dust-cloud"></i>
-<num>000</num>
-</cosi>
-<cosi class="g5" title="Astra">
-<i class="game-icon game-icon-orbital"></i>
-<num>000</num>
-</cosi>
-<cosi class="g6" title="Titan">
-<i class="game-icon game-icon-planet-core"></i>
-<num>000</num>
-</cosi>
-<cosi class="g7" title="Kaelum">
-<i class="game-icon game-icon-crossed-swords"></i>
-<num>000</num>
-</cosi>
-<cosi class="g8" title="Apex">
-<i class="game-icon game-icon-small-fire"></i>
-<num>000</num>
-</cosi>
-<cosi class="g9" title="Solari">
-<i class="game-icon game-icon-ubisoft-sun"></i>
-<num>000</num>
-</cosi>
-</casas>
-</derecha>  
-  
-<lkr>
-  <a href="" title="Codex multiversal"><i class="game-icon game-icon-black-book"></i></a>
-  <a href="" title="¿Qué es Aetheria?"><i class="game-icon game-icon-galaxy"></i></a>
-  <a href="" title="Modulador de señales"><i class="game-icon game-icon-defense-satellite"></i></a>
-  <a href="" title="Mapa estelar"><i class="game-icon game-icon-cartwheel"></i></a>
-  <a href="" title="Coordenadas Dúo"><i class="game-icon game-icon-aerial-signal"></i></a>
-  <a href="" title="Convocatoria de Flota"><i class="game-icon game-icon-space-needle"></i></a>
-  <a href="" title="Tablillas del foro"><i class="game-icon game-icon-notebook"></i></a>
-  <a href="" title="Avisos"><i class="game-icon game-icon-megaphone"></i></a>
-  <a href="" title="Tumblr"><i class="icofont-tumblr"></i></a>
-  <a href="" title="Discord"><i class="bi bi-discord"></i></a>
-</lkr>
-</div>
-  
-</div>
-<div id="no-bar">
-<ul class="linklist navlinks{NAVBAR_BORDERLESS}">
-<li>{GENERATED_NAV_BAR}</li>
-</ul>
-</div>
-                                  
-<div class="tablondos">
-<div class="noticias">
-<note><fcb>01 <sb>Sep</sb></fcb><txt>Apertura oficial del foro.</txt></note>
-<note><fcb>25 <sb>Feb</sb></fcb><txt>texto de la noticia en dos oraciones o más ya que es larga y super cute. <a href="">+ info</a></txt></note>
-<note><fcb>25 <sb>Feb</sb></fcb><txt>texto de la noticia</txt></note>
-<note><fcb>25 <sb>Feb</sb></fcb><txt>texto de la noticia</txt></note>
-</div>
-<div class="busquedas">
-<bsq><i class="game-icon game-icon-solar-system" title="grupal"></i>
-  <nts><a href="">OUAT: Dreamworks & Disney</a>
-    <j>basado en OUAT - 0/∞ cupos</j>
-    <b>fandom - fantasía</b>
-  </nts>
-</bsq>
-<bsq><i class="game-icon game-icon-beveled-star" title="individual"></i>
-  <nts><a href="">La mentira</a>
-    <j>basado en La mentira Caridad Bravo  - 2/2 cupos</j>
-    <b>basada en... - drama</b>
-  </nts>
-</bsq>
-<bsq><i class="game-icon game-icon-butterfly-flower" title="personaje"></i>
-  <nts><a href="">Jasper Whitlock</a>
-    <j>Antes de conocer a Alice, Jasper conoció a María, exploremos esa época, su paso por la guerra y su vida dirigiendo el ejercicio de neofitos.</j>
-    <b>Trama basada en Crepúsculo.</b>
-  </nts>
-</bsq>
-<bsq><i class="game-icon game-icon-solar-system" title="individual"></i>
-  <nts><a href="">Titulo del tema</a>
-    <j>basado en / original - 0/0 cupos</j>
-    <b>fandom/original - genero</b>
-  </nts>
-</bsq>
-</div>
-<div class="ultimostemas">
-</div>
-</div>
-					<!-- BEGIN switch_ticker_new -->
-					<div id="fa_ticker_blockD" style="margin-top:4px;">
-						<div class="module">
-							<div class="inner">
-								<span class="corners-top"><span></span></span>
-								<div id="fa_ticker_container">
-									<ul id="fa_ticker_content" class="jcarousel-skin-tango" style="display:none">
-										<!-- BEGIN ticker_row -->
-										<li>{switch_ticker.ticker_row.ELEMENT}</li>
-										<!-- END ticker_row -->
-									</ul>
-								</div>
-								<span class="corners-bottom"><span></span></span>
-							</div>
-						</div>
-					</div>
-					<!-- END switch_ticker_new -->
-
-					<!-- BEGIN switch_ticker -->
-					<div id="fa_ticker_block" style="margin-top:4px;">
-						<div class="module">
-							<div class="inner">
-								<span class="corners-top"><span></span></span>
-								<div id="fa_ticker_container">
-									<div id="fa_ticker" style="height:{switch_ticker.HEIGHT}px;">
-										<div class="fa_ticker_content">
-											<!-- BEGIN ticker_row -->
-											<div>{switch_ticker.ticker_row.ELEMENT}</div>
-											<!-- END ticker_row -->
-										</div>
-									</div>
-								</div>
-								<span class="corners-bottom"><span></span></span>
-							</div>
-						</div>
-					</div>
-					<!-- END switch_ticker -->
-				</div>
-				<div id="page-body">
-
-					<div id="{ID_CONTENT_CONTAINER}"{CLASS_CONTENT_CONTAINER}>
-						<div id="outer-wrapper">
-							<div id="wrapper">
-								<div id="container">
-									<div id="content">
-
-										<div id="{ID_LEFT}">
-											<!-- BEGIN giefmod_index1 -->
-											{giefmod_index1.MODVAR}
-											<!-- BEGIN saut -->
-											<div style="height:{SPACE_ROW}px"></div>
-											<!-- END saut -->
-											<!-- END giefmod_index1 -->
-										</div>
-
-										<div id="main">
-											<div id="main-content">
