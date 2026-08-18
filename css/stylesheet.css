@@ -44,8 +44,9 @@ body.usergroup-tortu {
   --gr1: linear-gradient(225deg,#cf9d36,#d15151);
 }
 /*cuerpo*/
+/* Cuerpo: modo oscuro */
 body {
-  /* Modo oscuro: azul profundo, lila suave y texto cómodo de leer. */
+  /* Colores generales del modo oscuro */
   --to1: 12, 12, 20;
   --to2: #191724;
   --to3: #f7f3ff;
@@ -58,21 +59,22 @@ body {
   --to10: #11101a;
   --gr1: linear-gradient(225deg, #4d78a7, #9b6eab);
 
+  /* Fuentes y fondo: estas reglas no deben faltar */
   --oo2: Poppins;
   --oo3: "Neuropol x";
   --oo4: "Distant Galaxy";
   --oo5: "Distant Galaxy Outline";
   --oo6: "Prometheus";
-}
+
   background-color: rgba(var(--to1));
   color: var(--to5);
   font-family: arial;
   font-size: 13px;
-  background-image: linear-gradient(0deg,rgba(var(--to1)), var(--to10));
+  background-image: linear-gradient(0deg, rgba(var(--to1)), var(--to10));
   margin: 7px;
   padding: 0;
-  margin-bottom: 35px!important;
-  margin-top:30px;
+  margin-bottom: 35px !important;
+  margin-top: 30px;
 }
 body#phpbb:before {
   content: "";
@@ -171,7 +173,7 @@ a#modoscolores:before {
 /*cabecera*/
 .cabecera {
   align-items: center;
-  background-image: url(https://i.pinimg.com/736x/25/a3/a0/25a3a0ee7352ff673b86566294bf6530.jpg), var(--gr1);
+  background-image: url(https://imgur.com/QQeQyEu.jpeg), var(--gr1);
   background-attachment: fixed;
   background-position: center bottom;
   background-blend-mode: multiply;
@@ -391,13 +393,13 @@ stff.stf1 a:before,stff.stf2 a:before,stff.stf3 a:before {
   border-radius: 100%;
 }
 stff.stf1 a:before {
-  border: 1px solid red;
+  border: 1px solid #7F5B9F;
 }
 stff.stf2 a:before {
-  border: 1px solid blue;
+  border: 1px solid #7F5B9F;
 }
 stff.stf3 a:before {
-  border: 1px solid green;
+  border: 1px solid #7F5B9F;
 }
 stff a {
   display: flex;
@@ -405,13 +407,13 @@ stff a {
   justify-content: center;
 }
 stff.stf1 a:hover{
-  color:red;
+  color:#7F5B9F;
 }
 stff.stf2 a:hover{
-  color:blue;
+  color:#7F5B9F;
 }
 stff.stf3 a:hover{
-  color:green;
+  color:#7F5B9F;
 }
 derecha {
   display: block;
@@ -470,7 +472,7 @@ cosi i {
 }
 cosi num {
   position: absolute;
-  font-size: 18px;
+  font-size: 15px;
   font-family: "Neuropol x";
   letter-spacing: -1px;
   text-shadow: 1px 1px black;
@@ -606,13 +608,15 @@ lkr a {
 .ultimostemas {
   width: 320px;
 }
+
 .mod-row {
   height: 242px;
   overflow: auto;
   width: 315px;
   padding-right: 5px;
 }
-#ulte {
+
+.ulte {
   align-content: center;
   align-items: center;
   background: var(--to2);
@@ -623,14 +627,18 @@ lkr a {
   width: 100%;
   text-shadow: 1px 1px rgba(var(--to1),0.9);
 }
-#ulte:first-of-type {
+
+.ulte:first-of-type {
   margin-top: 0;
 }
-#ulte:last-of-type {
+
+.ulte:last-of-type {
   margin-bottom: 0;
 }
-#ulte time, #ulte ulte {
-  background: linear-gradient(45deg,var(--to6), var(--to7));
+
+.ulte time,
+.ulte ulte {
+  background: linear-gradient(45deg, var(--to6), var(--to7));
   padding: 5px 8px;
   text-align: justify;
   font-family: var(--oo2);
@@ -638,25 +646,29 @@ lkr a {
   width: 100%;
   text-align-last: center;
 }
-#ulte ulte {
+
+.ulte ulte {
   border-radius: 15px 15px 0 0;
   line-height: 12px;
   font-size: 12px;
   font-weight: 500;
 }
-#ulte time {
+
+.ulte time {
   border-radius: 0 0 15px 15px;
   line-height: 4px;
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-#ulte ulte a:hover{
-  color: rgba(var(--to1),0.9);
-  text-shadow:none;
+
+.ulte ulte a:hover {
+  color: rgba(var(--to1), 0.9);
+  text-shadow: none;
   font-weight: 600;
 }
-#ulte poste {
+
+.ulte poste {
   font-family: var(--oo3);
   display: block;
   width: 302px;
@@ -666,7 +678,6 @@ lkr a {
   text-transform: uppercase;
   font-weight: 600;
 }
-
 /*foros*/
 ul {
   margin: 0;
@@ -2881,11 +2892,7 @@ width: expression(( document.documentElement.clientWidth ? document.documentElem
   padding: 1px!important;
 }
 
-/* SUBFOROS: reparte las tarjetas de forma equitativa.
-   - 3 tarjetas: una fila de 3.
-   - 2 tarjetas: cada una ocupa la mitad.
-   - 1 tarjeta: ocupa toda la fila.
-   La clase .sol conserva su diseño especial. */
+/* SUBFOROS */
 ul.topiclist.forums > .row:not(.sol) {
   box-sizing: border-box;
   display: flex;
@@ -2898,14 +2905,229 @@ ul.topiclist.forums > .row:not(.sol) .forito {
   width: calc(100% - 20px);
 }
 
-/* GRUPOS: 11 iconos repartidos en dos filas.
-   Primera fila: 6 grupos.
-   Segunda fila: 5 grupos.
-   Cada icono conserva su tamaño de 150 × 150 px. */
+/* GRUPOS */
 .grupos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 1080px;
   margin: 15px auto 0;
+}
+/* BBCODES PERSONALIZADOS CITAR · CÓDIGO · SPOILER · HIDE */
+/* CITAR */
+
+.postbody blockquote,
+.postbody .quote {
+    position: relative;
+    margin: 25px 10px;
+    padding: 22px 25px 20px;
+    background: var(--to10);
+    border: 1px solid var(--to9);
+    border-left: 3px solid var(--to6);
+    border-radius: 15px;
+    color: var(--to5);
+    line-height: 1.6;
+    box-shadow: 0 0 20px rgba(var(--to1), 0.25);
+}
+
+.postbody blockquote:before,
+.postbody .quote:before {
+    content: "❝";
+    position: absolute;
+    top: -18px;
+    left: 15px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gr1);
+    border-radius: 50%;
+    color: var(--to3);
+    font-family: Georgia, serif;
+    font-size: 28px;
+    box-shadow: 0 3px 10px rgba(var(--to1), 0.5);
+}
+
+.postbody blockquote cite,
+.postbody .quote cite {
+    display: block;
+    margin: -5px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--to9);
+    font-family: var(--oo2);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+    color: var(--to7);
+}
+
+.postbody blockquote cite a,
+.postbody .quote cite a {
+    color: var(--to6);
+}
+
+.postbody blockquote cite a:hover,
+.postbody .quote cite a:hover {
+    color: var(--to8);
+}
+
+/* CÓDIGO */
+
+.postbody .codebox {
+    position: relative;
+    margin: 25px 10px;
+    padding: 0;
+    background: var(--to10);
+    border: 1px solid var(--to9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(var(--to1), 0.25);
+}
+
+/* CABECERA */
+
+.postbody .codebox > dt {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 38px;
+    padding: 0 18px;
+    background: var(--gr1);
+    font-size: 0;
+}
+
+/* OCULTAR TEXTO ORIGINAL "CÓDIGO:" */
+
+.postbody .codebox > dt strong {
+    display: none;
+}
+
+/* BOTÓN "COPIAR CÓDIGO" */
+
+.postbody .codebox > dt .fae_copy-code {
+    float: none !important;
+    cursor: pointer;
+    font-family: var(--oo2);
+    font-size: 10px !important;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--to3);
+}
+
+/* CONTENIDO DEL CÓDIGO */
+
+.postbody .codebox > dd {
+    margin: 0;
+    padding: 18px;
+    background: rgba(var(--to1), 0.35);
+}
+
+.postbody .codebox code {
+    display: block;
+    max-height: 350px;
+    overflow: auto;
+    padding-right: 10px;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 11px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    color: var(--to4);
+}
+
+/* SPOILER */
+
+.postbody .spoiler {
+    margin: 25px 10px;
+    background: var(--to10);
+    border: 1px solid var(--to9);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* CABECERA */
+
+.postbody .spoiler_title,
+.postbody .spoiler > dt {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 18px;
+    background: linear-gradient(
+        90deg,
+        rgba(var(--to1), 0.8),
+        var(--to2)
+    );
+    border-bottom: 1px solid var(--to9);
+    font-family: var(--oo2);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--to7);
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+
+/* EFECTO HOVER */
+
+.postbody .spoiler_title:hover,
+.postbody .spoiler > dt:hover {
+    background: var(--gr1);
+    color: var(--to3);
+}
+
+/* CONTENIDO */
+
+.postbody .spoiler_content,
+.postbody .spoiler > dd {
+    margin: 0;
+    padding: 20px;
+    background: rgba(var(--to1), 0.35);
+    color: var(--to5);
+    line-height: 1.6;
+}
+
+/* HIDE / OCULTO */
+
+.postbody .hidecode,
+.postbody .hide {
+    position: relative;
+    margin: 25px 10px;
+    padding: 20px;
+    background: var(--to10);
+    border: 1px solid var(--to9);
+    border-radius: 15px;
+    overflow: hidden;
+    line-height: 1.6;
+    color: var(--to5);
+}
+
+/* AJUSTES DE MÁRGENES */
+
+.postbody blockquote:first-child,
+.postbody .quote:first-child,
+.postbody .codebox:first-child,
+.postbody .spoiler:first-child,
+.postbody .hidecode:first-child,
+.postbody .hide:first-child {
+    margin-top: 5px;
+}
+
+.postbody blockquote:last-child,
+.postbody .quote:last-child,
+.postbody .codebox:last-child,
+.postbody .spoiler:last-child,
+.postbody .hidecode:last-child,
+.postbody .hide:last-child {
+    margin-bottom: 5px;
+}
+
+#left > .ultimostemas {
+    display: none !important;
 }
