@@ -1,19 +1,86 @@
+<div class="ultimostemas">
 <div class="mod-row">
-<!-- BEGIN classical_row -->
-	<!-- BEGIN recent_topic_row -->
-<div id="ulte">
-<ulte><a href="{classical_row.recent_topic_row.U_TITLE}">{classical_row.recent_topic_row.L_TITLE}</a></ulte>
-<poste>
-		<!-- BEGIN switch_poster -->
-		<a href="{classical_row.recent_topic_row.switch_poster.U_POSTER}">{classical_row.recent_topic_row.switch_poster.S_POSTER}</a>
-		<!-- END switch_poster -->
 
-		<!-- BEGIN switch_poster_guest -->
-                  <aa>{classical_row.recent_topic_row.switch_poster_guest.S_POSTER}</aa>
-		<!-- END switch_poster_guest -->
-</poste>
-<time><tm>{classical_row.recent_topic_row.S_POSTTIME}</tm></time>
-</div>
-	<!-- END recent_topic_row -->
+<!-- BEGIN scrolling_row -->
+
+    <!-- BEGIN recent_topic_row -->
+
+    <div class="ulte">
+
+        <ulte>
+            <a href="{scrolling_row.recent_topic_row.U_TITLE}">
+                {scrolling_row.recent_topic_row.L_TOPIC_TITLE}
+            </a>
+        </ulte>
+
+        <poste>
+
+            <!-- BEGIN switch_poster -->
+            <a href="{scrolling_row.recent_topic_row.switch_poster.U_POSTER}">
+                {scrolling_row.recent_topic_row.switch_poster.S_POSTER}
+            </a>
+            <!-- END switch_poster -->
+
+            <!-- BEGIN switch_poster_guest -->
+            <aa>
+                {scrolling_row.recent_topic_row.switch_poster_guest.S_POSTER}
+            </aa>
+            <!-- END switch_poster_guest -->
+
+        </poste>
+
+        <time>
+            <tm>
+                {scrolling_row.recent_topic_row.S_POSTTIME}
+            </tm>
+        </time>
+
+    </div>
+
+    <!-- END recent_topic_row -->
+
+<!-- END scrolling_row -->
+
+
+<!-- BEGIN classical_row -->
+
+    <!-- BEGIN recent_topic_row -->
+
+    <div class="ulte">
+
+        <ulte>
+            <a href="{classical_row.recent_topic_row.U_TITLE}">
+                {classical_row.recent_topic_row.L_TITLE}
+            </a>
+        </ulte>
+
+        <poste>
+
+            <!-- BEGIN switch_poster -->
+            <a href="{classical_row.recent_topic_row.switch_poster.U_POSTER}">
+                {classical_row.recent_topic_row.switch_poster.S_POSTER}
+            </a>
+            <!-- END switch_poster -->
+
+            <!-- BEGIN switch_poster_guest -->
+            <aa>
+                {classical_row.recent_topic_row.switch_poster_guest.S_POSTER}
+            </aa>
+            <!-- END switch_poster_guest -->
+
+        </poste>
+
+        <time>
+            <tm>
+                {classical_row.recent_topic_row.S_POSTTIME}
+            </tm>
+        </time>
+
+    </div>
+
+    <!-- END recent_topic_row -->
+
 <!-- END classical_row -->
+
+</div>
 </div>
